@@ -20,7 +20,7 @@
  */
 
 'use strict';
-const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
+const PAGE_ACCESS_TOKEN = 'DQVJ1cFp1WXhZAUWF1cEU4V1FzVVB4MUpBbTlGdDNmUDJIeW1kU1RGaGJsNk5nTzFQM2xfZAjhxd05ySklPQWhjblN5TFdLdXlHcV9tVkdsU29hLTFCZAXNhQjlNaEJkU0VMV2xIcFdHbXZAhMHdIaHNORlhBSTJkS2dXZAUdRdWRmLWNQY2lRU25uN1BCVUpsVGFIQnN1LUJYWl9qb2tVU05pZAThHbWRTRy1UU2ZA6bTZATcDVhbndRTWN1Nk00WC1NUUhZAVlJGN0ZA3';
 // Imports dependencies and set up http server
 const 
   request = require('request'),
@@ -75,7 +75,7 @@ app.post('/webhook', (req, res) => {
 app.get('/webhook', (req, res) => {
   
   /** UPDATE YOUR VERIFY TOKEN **/
-  const VERIFY_TOKEN = "<YOUR VERIFY TOKEN>";
+  const VERIFY_TOKEN = "123";
   
   // Parse params from the webhook verification request
   let mode = req.query['hub.mode'];
