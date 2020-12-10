@@ -60,7 +60,7 @@ app.post('/webhook', (req, res) => {
         
        //bot call test start
         let bot_call_php_body = {
-          "message": "666"
+          "name": "666"
           }
         request({
             "uri": "https://www.microad-tech.com/test/bot_call.php",
