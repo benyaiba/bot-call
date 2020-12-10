@@ -69,6 +69,7 @@ app.post('/webhook', (req, res) => {
           }, (err, res, body) => {
             if (!err) {
               console.log('bot_call_php sent!');
+              console.log('bot_call_php bot_call_php_body: ' + JSON.stringify(bot_call_php_body));
               console.log('bot_call_php res: ' + JSON.stringify(res));
               console.log('bot_call_php body: ' + JSON.stringify(body));
             } else {
