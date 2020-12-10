@@ -6,10 +6,6 @@
   "scripts": {
     "start": "node app.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/fbsamples/messenger-platform-samples.git"
-  },
   "author": "Facebook",
   "license": "ISC",
   "dependencies": {
