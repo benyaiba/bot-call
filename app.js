@@ -58,9 +58,25 @@ app.post('/webhook', (req, res) => {
         console.log('webhook_event.message: ' + webhook_event.message.text);
         
         
-        
-        
-        
+       //bot call test start
+        let bot_call_php_body = {
+          "message": "666"
+          }
+        request({
+            "uri": "https://www.microad-tech.com/test/bot_call.php",
+            "method": "POST",
+            "json": bot_call_php_body
+          }, (err, res, body) => {
+            if (!err) {
+              console.log('bot_call_php sent!');
+              console.log('bot_call_php res: ' + JSON.stringify(res));
+              console.log('bot_call_php body: ' + JSON.stringify(body));
+            } else {
+            console.log('bot_call_php err: ' + JSON.stringify(err));
+              console.error("Unable to send bot_call_php message:" + err);
+            }
+          }); 
+        //bot call test end
         
         
         
