@@ -170,7 +170,7 @@ function callSendAPI(sender_psid, response) {
   }
   console.log('--↓-callSendAPI-↓--');
   console.log('sender_psid: ' + sender_psid);
-  console.log('response: ' + response);
+  console.log('response: ' + JSON.stringify(response));
   console.log('--↑-callSendAPI-↑--');
   // Send the HTTP request to the Messenger Platform
   request({
