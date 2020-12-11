@@ -164,8 +164,8 @@ function handleMessage(sender_psid, workplace_response) {
 	let array = workplace_response['workplace_response_name'].split(",");
 		console.log(array);
 		console.log(array.length);
-		for(j = 0,len=array.length; j < len; j++) {
-			console.log(array[j]);
+		for(var i=0;i<arr.length;i++) {
+			console.log(array[i]);
 		}
 	
 	  response = {
