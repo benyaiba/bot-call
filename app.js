@@ -185,7 +185,12 @@ function handleMessage(sender_psid, workplace_response) {
 				"title":array[i],
 				"payload":i,
 			}
-			response['attachment']['payload']['elements']['buttons'].push(temp);
+			response['attachment']['payload']['elements'][0]['buttons'].push(temp);
+			
+			
+			
+			
+			
 		}
 		
 		console.log(response);
