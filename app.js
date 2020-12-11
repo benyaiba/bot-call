@@ -152,15 +152,15 @@ app.get('/webhook', (req, res) => {
 function handleMessage(sender_psid, workplace_response) {
 	console.log('--↓-handleMessage-↓--');
   let response;
-  console.error("workplace_response message:" + workplace_response.message);
-  console.error("workplace_response name:" + workplace_response.name);
-  if (workplace_response.message) {
+  console.error("workplace_response message:" + workplace_response['message']);
+  console.error("workplace_response name:" + workplace_response['name']);
+  if (workplace_response['message']) {
 	  response = {
-      "text": workplace_response.message,
+      "text": workplace_response['message'],
     }
-  } else if (workplace_response.name){
+  } else if (workplace_response['name']){
 	  response = {
-      "text": workplace_response.name,
+      "text": workplace_response['name'],
     }
   }
   console.log('--↑-handleMessage-↑--');
