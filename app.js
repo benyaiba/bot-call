@@ -163,11 +163,11 @@ function handleMessage(sender_psid, received_message) {
   
   if (received_message.message) {
 	  response = {
-      "text": received_message.message;
+      "text": "1111";
     }
   } else if (received_message.name){
 	  response = {
-      "text": received_message.name;
+      "text": "2222";
     }
   }
   
@@ -212,7 +212,7 @@ function handleMessage(sender_psid, received_message) {
       }
     }
   } 
-  */
+  
   // Send the response message
   callSendAPI(sender_psid, response);    
 }
