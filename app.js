@@ -57,9 +57,10 @@ app.post('/webhook', (req, res) => {
       if (webhook_event.message) {
         console.log('webhook_event.message: ' + webhook_event.message.text);
         
-		let workplace_response = new Array();
-		workplace_response['name'] = '';
-		workplace_response['message'] = '';
+		let workplace_response = {
+			"name": "",
+			"message": "",
+		}
 
 		
        //bot call start
@@ -77,8 +78,12 @@ app.post('/webhook', (req, res) => {
               console.log('To workplace JSON: ' + JSON.stringify(bot_call_body));
               console.log('From workplace Response: ' + JSON.stringify(res));
               console.log('From workplace JSON: ' + JSON.stringify(body));
-			  workplace_response['name']  = body.name;
-			  workplace_response['message'] = body.message;
+
+			  workplace_response = {
+				"name": body.name,
+				"message": body.message,
+				}
+				
 			  console.log('From workplace name: ' + body.name);
 			  console.log('From workplace message: ' + body.message);
 			  console.log('From workplace name: ' + workplace_response.name);
@@ -165,15 +170,15 @@ app.get('/webhook', (req, res) => {
 function handleMessage(sender_psid, received_message) {
 	console.log('--↓-handleMessage-↓--');
   let response;
-  console.error("received_message message:" + received_message['message']);
-  console.error("received_message name:" + received_message['name']);
-  if (received_message['message']) {
+  console.error("received_message message:" + received_message.message);
+  console.error("received_message name:" + received_message.name);
+  if (received_message.message]) {
 	  response = {
-      "text": received_message['message'],
+      "text": received_message.message,
     }
-  } else if (received_message['name']){
+  } else if (received_message.name){
 	  response = {
-      "text": received_message['name'],
+      "text": received_message.name,
     }
   }
   console.log('--↑-handleMessage-↑--');
