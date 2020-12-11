@@ -91,7 +91,7 @@ app.post('/webhook', (req, res) => {
 			  console.log('From workplace workplace_response message: ' + workplace_response.message);
 			  console.log('From workplace webhook_event workplace_response_name: ' + webhook_event.workplace_response_name);
 			  console.log('From workplace webhook_event workplace_response_message: ' + webhook_event.workplace_response_message);
-			  
+			  handleMessage(sender_psid, webhook_event); 
             } else {
               console.log('bot_call err: ' + JSON.stringify(err));
               console.error("Unable to send bot_call message:" + err);
@@ -106,7 +106,7 @@ app.post('/webhook', (req, res) => {
 				console.log(workplace_response);
         //handleMessage(sender_psid, webhook_event.message);   
 		//handleMessage(sender_psid, workplace_response);
-		handleMessage(sender_psid, webhook_event); 		
+		//handleMessage(sender_psid, webhook_event); 		
       } else if (webhook_event.postback) {
         
         handlePostback(sender_psid, webhook_event.postback);
