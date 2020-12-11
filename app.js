@@ -102,8 +102,8 @@ app.post('/webhook', (req, res) => {
 				"name": webhook_event.workplace_response_name,
 				"message": webhook_event.workplace_response_message,
 				}
-				console.log('bot_call webhook_event: ' + webhook_event);
-				console.log('bot_call workplace_response: ' + workplace_response);
+				console.log(webhook_event);
+				console.log(workplace_response);
         //handleMessage(sender_psid, webhook_event.message);   
 		//handleMessage(sender_psid, workplace_response);
 		handleMessage(sender_psid, webhook_event); 		
@@ -154,15 +154,15 @@ app.get('/webhook', (req, res) => {
 function handleMessage(sender_psid, workplace_response) {
 	console.log('--↓-handleMessage-↓--');
   let response;
-  console.error("workplace_response message:" + workplace_response['message']);
-  console.error("workplace_response name:" + workplace_response['name']);
-  if (workplace_response['message']) {
+  console.error("workplace_response message:" + workplace_response['workplace_response_name']);
+  console.error("workplace_response name:" + workplace_response['workplace_response_message']);
+  if (workplace_response['workplace_response_name']) {
 	  response = {
-      "text": workplace_response['message'],
+      "text": workplace_response['workplace_response_name'],
     }
-  } else if (workplace_response['name']){
+  } else if (workplace_response['workplace_response_message']){
 	  response = {
-      "text": workplace_response['name'],
+      "text": workplace_response['workplace_response_message'],
     }
   }
   console.log('--↑-handleMessage-↑--');
