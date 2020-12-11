@@ -165,9 +165,29 @@ function handleMessage(sender_psid, workplace_response) {
 		console.log(array);
 		console.log(array.length);
 		response = {
-			"text": "一つを選んでください。",
-			"quick_replies":[],
-		}
+					"attachment": {
+					"type": "template",
+					"payload": {
+					  "template_type": "generic",
+					  "elements": [{
+						"title": "一つを選んでください。",
+						"subtitle": "Tap a button to answer.",
+						"buttons": [
+						  {
+							"type": "postback",
+							"title": "Yes!",
+							"payload": "yes",
+						  },
+						  {
+							"type": "postback",
+							"title": "No!",
+							"payload": "no",
+						  }
+						],
+					  }]
+					}
+				  }
+				}
 		
 		for(var i=0;i<array.length;i++) {
 			console.log(array[i]);
@@ -176,7 +196,7 @@ function handleMessage(sender_psid, workplace_response) {
 				"title":array[i],
 				"payload":i,
 			}
-			response['quick_replies'].push(temp);
+			response['attachment']['payload']['elements']['buttons'].push(temp);
 		}
 		
 		console.log(response);
