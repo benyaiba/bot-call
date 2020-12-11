@@ -185,7 +185,8 @@ function handleMessage(sender_psid, workplace_response) {
 				"title":array[i],
 				"payload":"name"+i,
 			}
-			buttons.push(temp);
+			//buttons.push(temp);
+			response['attachment']['payload']['elements'][0]['buttons'][i].push(temp);
 		}
 		
 		
@@ -195,7 +196,7 @@ function handleMessage(sender_psid, workplace_response) {
 		console.log("------");
 		
 		
-		response['attachment']['payload']['elements'][0]['buttons'] = buttons;
+		//response['attachment']['payload']['elements'][0]['buttons'].push(buttons);
 		console.log("------");
 		console.log(JSON.stringify(response));
 		console.log("------");
