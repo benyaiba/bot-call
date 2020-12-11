@@ -171,24 +171,13 @@ function handleMessage(sender_psid, workplace_response) {
 					  "template_type": "generic",
 					  "elements": [{
 						"title": "一つを選んでください。",
-						"subtitle": "Tap a button to answer.",
-						"buttons": [
-						  {
-							"type": "postback",
-							"title": "Yes!",
-							"payload": "yes",
-						  },
-						  {
-							"type": "postback",
-							"title": "No!",
-							"payload": "no",
-						  }
-						],
+						//"subtitle": "Tap a button to answer.",
+						"buttons": [],
 					  }]
 					}
 				  }
 				}
-/*		
+		
 		for(var i=0;i<array.length;i++) {
 			console.log(array[i]);
 			let temp = {
@@ -198,7 +187,7 @@ function handleMessage(sender_psid, workplace_response) {
 			}
 			response['attachment']['payload']['elements']['buttons'].push(temp);
 		}
-*/		
+		
 		console.log(response);
 	/*
 	  response = {
