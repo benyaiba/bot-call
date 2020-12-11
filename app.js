@@ -185,11 +185,13 @@ function handleMessage(sender_psid, workplace_response) {
 				"title":array[i],
 				"payload":"name"+i,
 			}
-			//buttons.push(temp);
-			response['attachment']['payload']['elements'][0]['buttons'][i].push(temp);
+			buttons.push(temp);
+			//response['attachment']['payload']['elements'][0]['buttons'][i].push(temp);
 		}
 		
-		
+		for(var i=0;i<array.buttons;i++) {
+			response['attachment']['payload']['elements'][0]['buttons'].push(buttons[i]);
+		}
 		
 		console.log("------");
 		console.log(buttons);
