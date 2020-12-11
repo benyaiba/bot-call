@@ -197,7 +197,7 @@ function handleMessage(sender_psid, workplace_response) {
 		
 		response['attachment']['payload']['elements'][0]['buttons'].push(buttons);
 		console.log("------");
-		console.log(response['attachment']['payload']['elements']);
+		console.log(JSON.stringify(response));
 		console.log("------");
 		
 	/*
