@@ -197,7 +197,7 @@ function handleMessage(sender_psid, workplace_response) {
 					}
 				  }
 				}
-		let buttons = [];
+/*		let buttons = [];
 		for(var i=0;i<3;i++) {
 			console.log(array[i]);
 			let temp = {
@@ -208,7 +208,7 @@ function handleMessage(sender_psid, workplace_response) {
 			buttons.push(temp);
 			response['attachment']['payload']['elements'][0]['buttons'].push(temp);
 		}
-		
+	*/	
 		
 		console.log("------");
 		console.log(buttons);
