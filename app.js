@@ -154,12 +154,28 @@ app.get('/webhook', (req, res) => {
 function handleMessage(sender_psid, workplace_response) {
 	console.log('--↓-handleMessage-↓--');
   let response;
-  console.error("workplace_response message:" + workplace_response['workplace_response_name']);
-  console.error("workplace_response name:" + workplace_response['workplace_response_message']);
+  console.error("workplace_response message:" + workplace_response['workplace_response_message']);
+  console.error("workplace_response name:" + workplace_response['workplace_response_name']);
   if (workplace_response['workplace_response_name']) {
+//	  response = {
+//		"text": workplace_response['workplace_response_name'],
+//       }
+	
 	  response = {
-      "text": workplace_response['workplace_response_name'],
+        "text": "Pick a color:",
+		"quick_replies":[
+		  {
+			"content_type":"text",
+			"title":"Red",
+			"payload":"yes"
+		  },{
+			"content_type":"text",
+			"title":"Green",
+			"payload":"no"
+		  }
+		]
     }
+	
   } else if (workplace_response['workplace_response_message']){
 	  response = {
       "text": workplace_response['workplace_response_message'],
