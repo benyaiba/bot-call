@@ -102,9 +102,11 @@ app.post('/webhook', (req, res) => {
 				"name": webhook_event.workplace_response_name,
 				"message": webhook_event.workplace_response_message,
 				}
-
+				console.log('bot_call webhook_event: ' + webhook_event);
+				console.log('bot_call workplace_response: ' + workplace_response);
         //handleMessage(sender_psid, webhook_event.message);   
-		handleMessage(sender_psid, workplace_response); 		
+		//handleMessage(sender_psid, workplace_response);
+		handleMessage(sender_psid, webhook_event); 		
       } else if (webhook_event.postback) {
         
         handlePostback(sender_psid, webhook_event.postback);
