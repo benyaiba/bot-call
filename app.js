@@ -160,6 +160,13 @@ function handleMessage(sender_psid, workplace_response) {
 //	  response = {
 //		"text": workplace_response['workplace_response_name'],
 //       }
+
+	let array = workplace_response['workplace_response_name'].split(",");
+		console.log(array);
+		console.log(array.length);
+		for(j = 0,len=array.length; j < len; j++) {
+			console.log(array[j]);
+		}
 	
 	  response = {
         "text": "Pick a color:",
@@ -171,10 +178,6 @@ function handleMessage(sender_psid, workplace_response) {
 		  },{
 			"content_type":"text",
 			"title":"Green",
-			"payload":"no"
-		  },{
-			"content_type":"text",
-			"title":"",
 			"payload":"no"
 		  }
 		]
