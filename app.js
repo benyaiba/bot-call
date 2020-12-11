@@ -167,7 +167,7 @@ function handleMessage(sender_psid, workplace_response) {
 		console.log(response);
 		response = {
 			"text": "Pick a color:",
-			"quick_replies":[];
+			"quick_replies":[],
 		}
 		
 		for(var i=0;i<array.length;i++) {
@@ -175,7 +175,7 @@ function handleMessage(sender_psid, workplace_response) {
 			let temp = {
 				"content_type":"text",
 				"title":array[i],
-				"payload":i
+				"payload":i,
 			}
 			response['quick_replies'].push(temp);
 		}
