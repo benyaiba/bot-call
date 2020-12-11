@@ -46,8 +46,8 @@ app.post('/webhook', (req, res) => {
       // Gets the body of the webhook event
       let webhook_event = entry.messaging[0];
 	  
-	  webhook_event.workplace_response_name = "777";
-	  webhook_event.workplace_response_message = "888";
+	  webhook_event.workplace_response_name = "";
+	  webhook_event.workplace_response_message = "";
       console.log(webhook_event);
 
 
@@ -82,12 +82,15 @@ app.post('/webhook', (req, res) => {
               console.log('From workplace Response: ' + JSON.stringify(res));
               console.log('From workplace JSON: ' + JSON.stringify(body));
 
-			  
+			  webhook_event.workplace_response_name = body.name;
+			  webhook_event.workplace_response_message = body.message;
 				
-			  console.log('From workplace name: ' + body.name);
-			  console.log('From workplace message: ' + body.message);
-			  console.log('From workplace name: ' + workplace_response.name);
-			  console.log('From workplace message: ' + workplace_response.message);
+			  console.log('From workplace body name: ' + body.name);
+			  console.log('From workplace body message: ' + body.message);
+			  console.log('From workplace workplace_response name: ' + workplace_response.name);
+			  console.log('From workplace workplace_response message: ' + workplace_response.message);
+			  console.log('From workplace webhook_event workplace_response_name: ' + webhook_event.workplace_response_name);
+			  console.log('From workplace webhook_event workplace_response_message: ' + webhook_event.workplace_response_message);
 			  
             } else {
               console.log('bot_call err: ' + JSON.stringify(err));
@@ -96,8 +99,8 @@ app.post('/webhook', (req, res) => {
           }); 
         //bot call end
 			workplace_response = {
-				"name": body.name,
-				"message": body.message,
+				"name": webhook_event.workplace_response_name,
+				"message": webhook_event.workplace_response_message,
 				}
 
         //handleMessage(sender_psid, webhook_event.message);   
