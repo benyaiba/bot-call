@@ -164,10 +164,24 @@ function handleMessage(sender_psid, workplace_response) {
 	let array = workplace_response['workplace_response_name'].split(",");
 		console.log(array);
 		console.log(array.length);
-		for(var i=0;i<arr.length;i++) {
-			console.log(array[i]);
+		console.log(response);
+		response = {
+			"text": "Pick a color:",
+			"quick_replies":[];
 		}
-	
+		
+		for(var i=0;i<array.length;i++) {
+			console.log(array[i]);
+			let temp = {
+				"content_type":"text",
+				"title":array[i],
+				"payload":i
+			}
+			response['quick_replies'].push(temp);
+		}
+		
+		console.log(response);
+	/*
 	  response = {
         "text": "Pick a color:",
 		"quick_replies":[
@@ -181,8 +195,8 @@ function handleMessage(sender_psid, workplace_response) {
 			"payload":"no"
 		  }
 		]
-    }
-	
+		}
+	*/
   } else if (workplace_response['workplace_response_message']){
 	  response = {
       "text": workplace_response['workplace_response_message'],
