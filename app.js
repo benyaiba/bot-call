@@ -57,6 +57,8 @@ app.post('/webhook', (req, res) => {
       if (webhook_event.message) {
         console.log('webhook_event.message: ' + webhook_event.message.text);
         
+		let workplace_response;
+		
        //bot call start
         let bot_call_body = {
           "name": webhook_event.message.text,
@@ -69,18 +71,44 @@ app.post('/webhook', (req, res) => {
           }, (err, res, body) => {
             if (!err) {
               console.log('bot_call sent!');
-              console.log('bot_call bot_call_body: ' + JSON.stringify(bot_call_body));
-              console.log('bot_call res: ' + JSON.stringify(res));
-              console.log('bot_call body: ' + JSON.stringify(body));
+              console.log('To workplace JSON: ' + JSON.stringify(bot_call_body));
+              console.log('From workplace Response: ' + JSON.stringify(res));
+              console.log('From workplace JSON: ' + JSON.stringify(body));
+			  workplace_response = JSON.stringify(body);
+			  workplace_response.name;
+			  workplace_response.message;
+			  console.log('From workplace name: ' + workplace_response.name);
+			  console.log('From workplace message: ' + workplace_response.message);
             } else {
-            console.log('bot_call err: ' + JSON.stringify(err));
+              console.log('bot_call err: ' + JSON.stringify(err));
               console.error("Unable to send bot_call message:" + err);
             }
           }); 
         //bot call end
-        
-        
-        
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
         
         
         handleMessage(sender_psid, webhook_event.message);        
