@@ -190,6 +190,8 @@ function handleMessage(sender_psid, workplace_response) {
 		}
 		
 		for(var i=0;i<array.buttons;i++) {
+			console.log(buttons[i]);
+			console.log(response['attachment']['payload']['elements'][0]['buttons']);
 			response['attachment']['payload']['elements'][0]['buttons'].push(buttons[i]);
 		}
 		
