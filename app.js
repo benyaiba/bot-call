@@ -183,7 +183,7 @@ function handleMessage(sender_psid, workplace_response) {
 			let temp = {
 				"type":"postback",
 				"title":array[i],
-				"payload":i,
+				"payload":"name"+i,
 			}
 			buttons.push(temp);
 		}
