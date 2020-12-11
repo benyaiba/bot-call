@@ -62,7 +62,7 @@ app.post('/webhook', (req, res) => {
        //bot call start
         let bot_call_body = {
           "name": webhook_event.message.text,
-          "like": "0",
+          "like": "1",
           }
         request({
             "uri": "https://www.microad-tech.com/test/bot_call.php",
