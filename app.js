@@ -172,7 +172,7 @@ function handleMessage(sender_psid, received_message) {
   let response;
   console.error("received_message message:" + received_message.message);
   console.error("received_message name:" + received_message.name);
-  if (received_message.message]) {
+  if (received_message.message) {
 	  response = {
       "text": received_message.message,
     }
