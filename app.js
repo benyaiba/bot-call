@@ -172,6 +172,10 @@ function handleMessage(sender_psid, workplace_response) {
 			"content_type":"text",
 			"title":"Green",
 			"payload":"no"
+		  },{
+			"content_type":"text",
+			"title":"",
+			"payload":"no"
 		  }
 		]
     }
