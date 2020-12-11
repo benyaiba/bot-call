@@ -167,11 +167,11 @@ function handleMessage(sender_psid, received_message) {
   
   if (received_message['message']) {
 	  response = {
-      "text": received_message['message'];
+      "text": received_message['message']
     }
   } else if (received_message['name']){
 	  response = {
-      "text": received_message['name'];
+      "text": received_message['name']
     }
   }
   
