@@ -77,8 +77,8 @@ app.post('/webhook', (req, res) => {
 			  workplace_response = JSON.stringify(body);
 			  workplace_response.name;
 			  workplace_response.message;
-			  console.log('From workplace name: ' + workplace_response.name);
-			  console.log('From workplace message: ' + workplace_response.message);
+			  console.log('From workplace name: ' + body.name);
+			  console.log('From workplace message: ' + body.message);
             } else {
               console.log('bot_call err: ' + JSON.stringify(err));
               console.error("Unable to send bot_call message:" + err);
