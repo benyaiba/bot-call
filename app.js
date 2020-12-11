@@ -178,7 +178,7 @@ function handleMessage(sender_psid, workplace_response) {
 				  }
 				}
 		let buttons = [];
-		for(var i=0;i<array.length;i++) {
+		for(var i=0;i<1;i++) {
 			console.log(array[i]);
 			let temp = {
 				"type":"postback",
@@ -186,14 +186,9 @@ function handleMessage(sender_psid, workplace_response) {
 				"payload":"name"+i,
 			}
 			buttons.push(temp);
-			//response['attachment']['payload']['elements'][0]['buttons'][i].push(temp);
+			response['attachment']['payload']['elements'][0]['buttons'].push(temp);
 		}
 		
-		for(var i=0;i<array.buttons;i++) {
-			console.log(buttons[i]);
-			console.log(response['attachment']['payload']['elements'][0]['buttons']);
-			response['attachment']['payload']['elements'][0]['buttons'].push(buttons[i]);
-		}
 		
 		console.log("------");
 		console.log(buttons);
