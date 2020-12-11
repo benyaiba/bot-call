@@ -172,7 +172,27 @@ function handleMessage(sender_psid, workplace_response) {
 					  "elements": [{
 						"title": "一つを選んでください。",
 						//"subtitle": "Tap a button to answer.",
-						"buttons": []
+						"buttons": [{
+				"type":"postback",
+				"title":"11111",
+				"payload":"name1",
+			},{
+				"type":"postback",
+				"title":"222222",
+				"payload":"name2",
+			}]
+					  },{
+						"title": "一つを選んでください。",
+						//"subtitle": "Tap a button to answer.",
+						"buttons": [{
+				"type":"postback",
+				"title":"33333",
+				"payload":"name3",
+			},{
+				"type":"postback",
+				"title":"44444",
+				"payload":"name4",
+			}]
 					  }]
 					}
 				  }
