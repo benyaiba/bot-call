@@ -58,8 +58,8 @@ app.post('/webhook', (req, res) => {
         console.log('webhook_event.message: ' + webhook_event.message.text);
         
 		let workplace_response = {
-			"name": "",
-			"message": "",
+			"name": "22",
+			"message": "223",
 		}
 
 		
@@ -95,32 +95,8 @@ app.post('/webhook', (req, res) => {
             }
           }); 
         //bot call end
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-        
-        
+
+
         //handleMessage(sender_psid, webhook_event.message);   
 		handleMessage(sender_psid, workplace_response); 		
       } else if (webhook_event.postback) {
@@ -167,18 +143,18 @@ app.get('/webhook', (req, res) => {
   }
 });
 
-function handleMessage(sender_psid, received_message) {
+function handleMessage(sender_psid, workplace_response) {
 	console.log('--↓-handleMessage-↓--');
   let response;
-  console.error("received_message message:" + received_message.message);
-  console.error("received_message name:" + received_message.name);
-  if (received_message.message) {
+  console.error("workplace_response message:" + workplace_response.message);
+  console.error("workplace_response name:" + workplace_response.name);
+  if (workplace_response.message) {
 	  response = {
-      "text": received_message.message,
+      "text": workplace_response.message,
     }
-  } else if (received_message.name){
+  } else if (workplace_response.name){
 	  response = {
-      "text": received_message.name,
+      "text": workplace_response.name,
     }
   }
   console.log('--↑-handleMessage-↑--');
