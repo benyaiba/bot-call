@@ -45,6 +45,9 @@ app.post('/webhook', (req, res) => {
 
       // Gets the body of the webhook event
       let webhook_event = entry.messaging[0];
+	  
+	  webhook_event.workplace_response_name = "777";
+	  webhook_event.workplace_response_message = "888";
       console.log(webhook_event);
 
 
