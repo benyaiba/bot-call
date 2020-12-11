@@ -65,7 +65,7 @@ app.post('/webhook', (req, res) => {
        //bot call start
         let bot_call_body = {
           "name": webhook_event.message.text,
-          "like": "1",
+          "like": "0",
           }
         request({
             "uri": "https://www.microad-tech.com/test/bot_call.php",
@@ -163,18 +163,20 @@ app.get('/webhook', (req, res) => {
 });
 
 function handleMessage(sender_psid, received_message) {
+	console.log('--↓-handleMessage-↓--');
   let response;
-  
+  console.error("received_message message:" + received_message['message']);
+  console.error("received_message name:" + received_message['name']);
   if (received_message['message']) {
 	  response = {
-      "text": received_message['message']
+      "text": received_message['message'],
     }
   } else if (received_message['name']){
 	  response = {
-      "text": received_message['name']
+      "text": received_message['name'],
     }
   }
-  
+  console.log('--↑-handleMessage-↑--');
   
   
   
