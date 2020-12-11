@@ -74,11 +74,12 @@ app.post('/webhook', (req, res) => {
               console.log('To workplace JSON: ' + JSON.stringify(bot_call_body));
               console.log('From workplace Response: ' + JSON.stringify(res));
               console.log('From workplace JSON: ' + JSON.stringify(body));
-			  workplace_response = JSON.stringify(body);
-			  workplace_response.name;
-			  workplace_response.message;
+			  workplace_response.name = body.name;
+			  workplace_response.message = body.message;
 			  console.log('From workplace name: ' + body.name);
 			  console.log('From workplace message: ' + body.message);
+			  console.log('From workplace name: ' + workplace_response.name);
+			  console.log('From workplace message: ' + workplace_response.message);
 			  
             } else {
               console.log('bot_call err: ' + JSON.stringify(err));
@@ -113,7 +114,7 @@ app.post('/webhook', (req, res) => {
         
         
         //handleMessage(sender_psid, webhook_event.message);   
-		handleMessage(sender_psid, body); 		
+		handleMessage(sender_psid, workplace_response); 		
       } else if (webhook_event.postback) {
         
         handlePostback(sender_psid, webhook_event.postback);
