@@ -178,7 +178,7 @@ function handleMessage(sender_psid, workplace_response) {
 				  }
 				}
 		let buttons = [];
-		for(var i=0;i<1;i++) {
+		for(var i=0;i<3;i++) {
 			console.log(array[i]);
 			let temp = {
 				"type":"postback",
