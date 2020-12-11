@@ -192,7 +192,7 @@ function handleMessage(sender_psid, workplace_response) {
 		for(var i=0;i<array.length;i++) {
 			console.log(array[i]);
 			let temp = {
-				"content_type":"text",
+				"type":"postback",
 				"title":array[i],
 				"payload":i,
 			}
