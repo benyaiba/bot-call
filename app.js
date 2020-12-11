@@ -177,7 +177,7 @@ function handleMessage(sender_psid, workplace_response) {
 					}
 				  }
 				}
-		
+		let buttons = [];
 		for(var i=0;i<array.length;i++) {
 			console.log(array[i]);
 			let temp = {
@@ -185,16 +185,21 @@ function handleMessage(sender_psid, workplace_response) {
 				"title":array[i],
 				"payload":i,
 			}
-			//response['attachment']['payload']['elements'][0]['buttons'].push(temp);
-			
-			
-			
-			
-			
+			buttons.push(temp);
 		}
+		
+		
+		
 		console.log("------");
-		console.log(response['attachment']['payload']['elements'][0]);
+		console.log(buttons);
 		console.log("------");
+		
+		
+		response['attachment']['payload']['elements'][0]['buttons'].push(buttons);
+		console.log("------");
+		console.log(response);
+		console.log("------");
+		
 	/*
 	  response = {
         "text": "Pick a color:",
