@@ -164,9 +164,8 @@ function handleMessage(sender_psid, workplace_response) {
 	let array = workplace_response['workplace_response_name'].split(",");
 		console.log(array);
 		console.log(array.length);
-		console.log(response);
 		response = {
-			"text": "Pick a color:",
+			"text": "一つを選んでください。",
 			"quick_replies":[],
 		}
 		
