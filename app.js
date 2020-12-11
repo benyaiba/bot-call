@@ -208,12 +208,12 @@ function handleMessage(sender_psid, workplace_response) {
 			buttons.push(temp);
 			response['attachment']['payload']['elements'][0]['buttons'].push(temp);
 		}
-	*/	
+		
 		
 		console.log("------");
 		console.log(buttons);
 		console.log("------");
-		
+	*/	
 		
 		//response['attachment']['payload']['elements'][0]['buttons'].push(buttons);
 		console.log("------");
