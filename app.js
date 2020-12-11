@@ -57,7 +57,6 @@ app.post('/webhook', (req, res) => {
       if (webhook_event.message) {
         console.log('webhook_event.message: ' + webhook_event.message.text);
         
-        
        //bot call start
         let bot_call_body = {
           "name": webhook_event.message.text,
@@ -70,7 +69,7 @@ app.post('/webhook', (req, res) => {
           }, (err, res, body) => {
             if (!err) {
               console.log('bot_call sent!');
-              console.log('bot_call bot_call_body: ' + JSON.stringify(bot_call_php_body));
+              console.log('bot_call bot_call_body: ' + JSON.stringify(bot_call_body));
               console.log('bot_call res: ' + JSON.stringify(res));
               console.log('bot_call body: ' + JSON.stringify(body));
             } else {
@@ -190,6 +189,7 @@ function handlePostback(sender_psid, received_postback) {
 }
 
 function callSendAPI(sender_psid, response) {
+  console.log('--↓-callSendAPI-↓--');
   // Construct the message body
   let request_body = {
     "recipient": {
@@ -197,10 +197,10 @@ function callSendAPI(sender_psid, response) {
     },
     "message": response
   }
-  console.log('--↓-callSendAPI-↓--');
+  
   console.log('sender_psid: ' + sender_psid);
   console.log('response: ' + JSON.stringify(response));
-  console.log('--↑-callSendAPI-↑--');
+  
   // Send the HTTP request to the Messenger Platform
   request({
     "uri": "https://graph.facebook.com/v2.6/me/messages",
@@ -216,4 +216,5 @@ function callSendAPI(sender_psid, response) {
       console.error("Unable to send message:" + err);
     }
   }); 
+  console.log('--↑-callSendAPI-↑--');
 }
