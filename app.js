@@ -79,6 +79,7 @@ app.post('/webhook', (req, res) => {
 			  workplace_response.message;
 			  console.log('From workplace name: ' + body.name);
 			  console.log('From workplace message: ' + body.message);
+			  
             } else {
               console.log('bot_call err: ' + JSON.stringify(err));
               console.error("Unable to send bot_call message:" + err);
@@ -111,7 +112,8 @@ app.post('/webhook', (req, res) => {
 		
         
         
-        handleMessage(sender_psid, webhook_event.message);        
+        //handleMessage(sender_psid, webhook_event.message);   
+		handleMessage(sender_psid, body); 		
       } else if (webhook_event.postback) {
         
         handlePostback(sender_psid, webhook_event.postback);
@@ -159,6 +161,21 @@ app.get('/webhook', (req, res) => {
 function handleMessage(sender_psid, received_message) {
   let response;
   
+  if (received_message.message) {
+	  response = {
+      "text": received_message.message;
+    }
+  } else if (received_message.name){
+	  response = {
+      "text": received_message.name;
+    }
+  }
+  
+  
+  
+  
+  
+  /*
   // Checks if the message contains text
   if (received_message.text) {    
     // Create the payload for a basic text message, which
@@ -195,7 +212,7 @@ function handleMessage(sender_psid, received_message) {
       }
     }
   } 
-  
+  */
   // Send the response message
   callSendAPI(sender_psid, response);    
 }
