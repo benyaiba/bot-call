@@ -172,7 +172,7 @@ function handleMessage(sender_psid, workplace_response) {
 					  "elements": [{
 						"title": "一つを選んでください。",
 						//"subtitle": "Tap a button to answer.",
-						"buttons": [],
+						"buttons": []
 					  }]
 					}
 				  }
@@ -185,15 +185,16 @@ function handleMessage(sender_psid, workplace_response) {
 				"title":array[i],
 				"payload":i,
 			}
-			response['attachment']['payload']['elements'][0]['buttons'].push(temp);
+			//response['attachment']['payload']['elements'][0]['buttons'].push(temp);
 			
 			
 			
 			
 			
 		}
-		
-		console.log(response);
+		console.log("------");
+		console.log(response['attachment']['payload']['elements'][0]);
+		console.log("------");
 	/*
 	  response = {
         "text": "Pick a color:",
