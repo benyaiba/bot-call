@@ -281,7 +281,7 @@ function handlePostback(sender_psid, received_postback) {
   }
   // Send the message to acknowledge the postback
   console.log('--↓-Output the user selected name-↓--');
-  callSendAPI(sender_psid, response);
+  //callSendAPI(sender_psid, response);
   
   
   
