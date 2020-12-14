@@ -20,14 +20,14 @@
  */
 
 'use strict';
-//const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const PAGE_ACCESS_TOKEN = 'DQVJ1cFp1WXhZAUWF1cEU4V1FzVVB4MUpBbTlGdDNmUDJIeW1kU1RGaGJsNk5nTzFQM2xfZAjhxd05ySklPQWhjblN5TFdLdXlHcV9tVkdsU29hLTFCZAXNhQjlNaEJkU0VMV2xIcFdHbXZAhMHdIaHNORlhBSTJkS2dXZAUdRdWRmLWNQY2lRU25uN1BCVUpsVGFIQnN1LUJYWl9qb2tVU05pZAThHbWRTRy1UU2ZA6bTZATcDVhbndRTWN1Nk00WC1NUUhZAVlJGN0ZA3';
+const WEBHOOK_URL = "https://www.microad-tech.com/test/bot_call.php";
 // Imports dependencies and set up http server
 const 
   request = require('request'),
   express = require('express'),
   body_parser = require('body-parser'),
-  app = express().use(body_parser.json()); // creates express http server
+  app = express().use(body_parser.json());
 
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
@@ -72,7 +72,7 @@ app.post('/webhook', (req, res) => {
           "like": "0",
           }
         request({
-            "uri": "https://www.microad-tech.com/test/bot_call.php",
+            "uri": WEBHOOK_URL,
             "method": "POST",
             "json": bot_call_body
           }, (err, res, body) => {
@@ -291,7 +291,7 @@ function handlePostback(sender_psid, received_postback) {
           "like": "1",
           }
         request({
-            "uri": "https://www.microad-tech.com/test/bot_call.php",
+            "uri": WEBHOOK_URL,
             "method": "POST",
             "json": bot_call_body
           }, (err, res, body) => {
