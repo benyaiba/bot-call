@@ -85,12 +85,6 @@ app.post('/webhook', (req, res) => {
 			  webhook_event.workplace_response_name = body.name;
 			  webhook_event.workplace_response_message = body.message;
 				
-			  console.log('From workplace body name: ' + body.name);
-			  console.log('From workplace body message: ' + body.message);
-			  console.log('From workplace workplace_response name: ' + workplace_response.name);
-			  console.log('From workplace workplace_response message: ' + workplace_response.message);
-			  console.log('From workplace webhook_event workplace_response_name: ' + webhook_event.workplace_response_name);
-			  console.log('From workplace webhook_event workplace_response_message: ' + webhook_event.workplace_response_message);
 			  handleMessage(sender_psid, webhook_event); 
             } else {
               console.log('bot_call err: ' + JSON.stringify(err));
@@ -104,9 +98,7 @@ app.post('/webhook', (req, res) => {
 				}
 				console.log(webhook_event);
 				console.log(workplace_response);
-        //handleMessage(sender_psid, webhook_event.message);   
-		//handleMessage(sender_psid, workplace_response);
-		//handleMessage(sender_psid, webhook_event); 		
+		
       } else if (webhook_event.postback) {
         
         handlePostback(sender_psid, webhook_event.postback);
@@ -265,23 +257,67 @@ function handleMessage(sender_psid, workplace_response) {
   } 
   */
   // Send the response message
+  console.log('--↓-Send the response message-↓--');
   callSendAPI(sender_psid, response);    
 }
 
 function handlePostback(sender_psid, received_postback) {
   console.log('ok')
-   let response;
+  let response;
   // Get the payload for the postback
   let payload = received_postback.payload;
+  let name_selected  = received_postback.title;
 
   // Set the response based on the postback payload
+  /*
   if (payload === 'yes') {
     response = { "text": "Thanks!" }
   } else if (payload === 'no') {
     response = { "text": "Oops, try sending another image." }
   }
+  */
+  if (payload) {
+    response = { "text": name_selected}
+  }
   // Send the message to acknowledge the postback
+  console.log('--↓-Output the user selected name-↓--');
   callSendAPI(sender_psid, response);
+  
+  
+  
+  //bot call start
+        let bot_call_body = {
+          "name": name_selected,
+          "like": "1",
+          }
+        request({
+            "uri": "https://www.microad-tech.com/test/bot_call.php",
+            "method": "POST",
+            "json": bot_call_body
+          }, (err, res, body) => {
+            if (!err) {
+              console.log('bot_call sent!');
+              console.log('To workplace JSON: ' + JSON.stringify(bot_call_body));
+              console.log('From workplace Response: ' + JSON.stringify(res));
+              console.log('From workplace JSON: ' + JSON.stringify(body));
+
+			  webhook_event.workplace_response_name = body.name;
+			  webhook_event.workplace_response_message = body.message;
+				
+			  
+			  let response = { "text": body.message};
+			  callSendAPI(sender_psid, response);
+            } else {
+              console.log('bot_call err: ' + JSON.stringify(err));
+              console.error("Unable to send bot_call message:" + err);
+            }
+          }); 
+        //bot call end
+  
+  
+  
+  
+  
 }
 
 function callSendAPI(sender_psid, response) {
