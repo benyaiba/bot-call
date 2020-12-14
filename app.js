@@ -300,10 +300,6 @@ function handlePostback(sender_psid, received_postback) {
               console.log('To workplace JSON: ' + JSON.stringify(bot_call_body));
               console.log('From workplace Response: ' + JSON.stringify(res));
               console.log('From workplace JSON: ' + JSON.stringify(body));
-
-			  webhook_event.workplace_response_name = body.name;
-			  webhook_event.workplace_response_message = body.message;
-				
 			  
 			  let response = { "text": body.message};
 			  callSendAPI(sender_psid, response);
