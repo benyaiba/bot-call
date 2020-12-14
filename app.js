@@ -172,32 +172,12 @@ function handleMessage(sender_psid, workplace_response) {
 					  "elements": [{
 						"title": "一つを選んでください。",
 						//"subtitle": "Tap a button to answer.",
-						"buttons": [{
-				"type":"postback",
-				"title":"11111",
-				"payload":"name1",
-			},{
-				"type":"postback",
-				"title":"222222",
-				"payload":"name2",
-			}]
-					  },{
-						"title": "一つを選んでください。",
-						//"subtitle": "Tap a button to answer.",
-						"buttons": [{
-				"type":"postback",
-				"title":"33333",
-				"payload":"name3",
-			},{
-				"type":"postback",
-				"title":"44444",
-				"payload":"name4",
-			}]
+						"buttons": []
 					  }]
 					}
 				  }
 				}
-/*		let buttons = [];
+		let buttons = [];
 		for(var i=0;i<3;i++) {
 			console.log(array[i]);
 			let temp = {
@@ -213,7 +193,7 @@ function handleMessage(sender_psid, workplace_response) {
 		console.log("------");
 		console.log(buttons);
 		console.log("------");
-	*/	
+		
 		
 		//response['attachment']['payload']['elements'][0]['buttons'].push(buttons);
 		console.log("------");
