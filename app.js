@@ -48,8 +48,6 @@ app.post('/webhook', (req, res) => {
 	  
 	  webhook_event.workplace_response_name = "";
 	  webhook_event.workplace_response_message = "";
-      console.log(webhook_event);
-
 
       // Get the sender PSID
       let sender_psid = webhook_event.sender.id;
@@ -61,10 +59,9 @@ app.post('/webhook', (req, res) => {
         console.log('webhook_event.message: ' + webhook_event.message.text);
         
 		let workplace_response = {
-			"name": "22",
-			"message": "223",
+			"name": "",
+			"message": "",
 		}
-
 		
        //bot call start
         let bot_call_body = {
@@ -144,14 +141,11 @@ app.get('/webhook', (req, res) => {
 });
 
 function handleMessage(sender_psid, workplace_response) {
-	console.log('--↓-handleMessage-↓--');
+  console.log('--↓-handleMessage-↓--');
   let response;
   console.error("workplace_response message:" + workplace_response['workplace_response_message']);
   console.error("workplace_response name:" + workplace_response['workplace_response_name']);
   if (workplace_response['workplace_response_name']) {
-//	  response = {
-//		"text": workplace_response['workplace_response_name'],
-//       }
 
 	let array = workplace_response['workplace_response_name'].split(",");
 		console.log(array);
@@ -309,10 +303,7 @@ function handlePostback(sender_psid, received_postback) {
             }
           }); 
         //bot call end
-  
-  
-  
-  
+
   
 }
 
@@ -325,9 +316,6 @@ function callSendAPI(sender_psid, response) {
     },
     "message": response
   }
-  
-  console.log('sender_psid: ' + sender_psid);
-  console.log('response: ' + JSON.stringify(response));
   
   // Send the HTTP request to the Messenger Platform
   request({
