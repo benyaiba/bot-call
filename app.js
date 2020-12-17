@@ -98,8 +98,10 @@ app.post('/webhook', (req, res) => {
 				console.log(workplace_response);
 		
       } else if (webhook_event.postback) {
-        
+	console.log("----webhook_event.postback---↓-");    
+        console.log(webhook_event);
         handlePostback(sender_psid, webhook_event.postback);
+	console.log("----webhook_event.postback---↑-");   
       }
       
     });
