@@ -67,7 +67,7 @@ app.post('/webhook', (req, res) => {
        //bot call start
         let bot_call_body = {
           "name": webhook_event.message.text,
-          "like": "0",
+          "like": "1",
           }
         request({
             "uri": WEBHOOK_URL,
@@ -283,7 +283,7 @@ function handlePostback(sender_psid, received_postback) {
   //bot call start
         let bot_call_body = {
           "name": name_selected,
-          "like": "1",
+          "like": "0",
           }
         request({
             "uri": WEBHOOK_URL,
